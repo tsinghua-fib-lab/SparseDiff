@@ -1,0 +1,74 @@
+
+dataset: 'sh'
+noise: 0.0
+model_type: 'DDPM'
+net_type: 'UNet_new'
+diffusion:
+  n_T: 1000
+  betas: [1.0e-4, 0.02]
+
+grand:
+  input_steps: 10
+  latent_feat: 256
+
+vqvae:
+  hidden_dim: 32
+  embedding_dim: 32
+  num_embeddings: 30
+  T: 10
+
+# network:
+#   image_shape: [1, 128, 128]
+#   n_channels: 128
+#   ch_mults: [1, 2, 2, 2] # [1, 2, 4]
+#   is_attn: [False, True, True, True]
+#   dropout: 0.1
+#   n_blocks: 3
+#   use_res_for_updown: True
+
+network:
+  image_shape: [1, 128, 128]
+  n_channels: 128
+  ch_mults: [1, 2, 2] # [1, 2, 4]
+  is_attn: [False, False, True]
+  dropout: 0.1
+  n_blocks: 2
+  use_res_for_updown: False
+  
+data:
+  img_resolution: 128
+  channel: 1
+  r: 0.7
+  g: 1.0
+  dt: 0.05
+  dx: 0.98175
+
+sample:
+  zeta_obs: 5000
+  zeta_pde: 0.1
+  ratio: 0.1   # decline rate of observation after pde guidance
+  proportion: 0.2   # proportion of pde guidance
+  N: 5000
+  num_tra: 50
+  ddim_step: 100
+  eta: 0.0
+  sample_step: 5
+  pred_steps: 10
+  change_step: 5
+
+
+# training params
+n_epoch: 1000
+batch_size: 32
+lrate: 1.0e-5   
+warm_epoch: 100
+load_epoch: -1
+flip: True
+ema: 0.9999
+
+n_per_area: 5
+
+# testing params
+n_sample: 8
+save_dir: './log'
+save_model: True

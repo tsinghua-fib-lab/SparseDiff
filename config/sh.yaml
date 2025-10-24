@@ -17,24 +17,24 @@ vqvae:
   num_embeddings: 30
   T: 10
 
-# network:
-#   image_shape: [1, 128, 128]
-#   n_channels: 128
-#   ch_mults: [1, 2, 2, 2] # [1, 2, 4]
-#   is_attn: [False, True, True, True]
-#   dropout: 0.1
-#   n_blocks: 3
-#   use_res_for_updown: True
-
-network:
+network:   # 55M - for test
   image_shape: [1, 128, 128]
   n_channels: 128
-  ch_mults: [1, 2, 2] # [1, 2, 4]
-  is_attn: [False, False, True]
+  ch_mults: [1, 2, 2, 2] # [1, 2, 4]
+  is_attn: [False, True, True, True]
   dropout: 0.1
-  n_blocks: 2
-  use_res_for_updown: False
-  
+  n_blocks: 3
+  use_res_for_updown: True
+
+# network:   # 26M - final use
+#   image_shape: [1, 128, 128]
+#   n_channels: 128
+#   ch_mults: [1, 2, 2] # [1, 2, 4]
+#   is_attn: [False, False, True]
+#   dropout: 0.1
+#   n_blocks: 2
+#   use_res_for_updown: False
+
 data:
   img_resolution: 128
   channel: 1

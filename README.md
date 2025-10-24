@@ -6,7 +6,7 @@ Official implement of our **Neurips 2025** manuscript: 📄 *"Sparse Diffusion A
 
 This repository contains the implementation of **SparseDiff**, a novel Sparse Diffusion Autoencoder that efficiently predicts spatiotemporal dynamics and dynamically self-adjusts at test-time.
 
-![image](assets/SparseDiff.png)
+![image](assets/SparseDiff_method.png)
 
 
 
@@ -105,7 +105,7 @@ If you want to re-train the model, you can run train_sh.py with commands:
 
 ## 📌 Notes
 
-- This implementation provides a **demo using the SH system** as an example. (Full version will be released after acceptance)
+- This implementation provides a **demo using the SH system** as an example.
 - Supports **both single-GPU and multi-GPU training**.
 - Configuration files are stored in the `config/` directory.
 - For questions regarding reproducibility or additional details, please refer to our manuscript.
